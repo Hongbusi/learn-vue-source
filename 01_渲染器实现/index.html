@@ -19,10 +19,18 @@
         h('h2', null, 'title'),
         h('span', null, 'message')
       ]),
-      h('button', null, '+1')
+      h('button', {
+        onClick: function() {
+          console.log('click');
+        }
+      }, '+1')
     ]);
 
     mount(vnode, document.querySelector('#app'));
+
+    const vnode2 = h('div', { class: 'hbs2' }, 'Hello World!');
+
+    patch(vnode, vnode2);
   </script>
 </body>
 
