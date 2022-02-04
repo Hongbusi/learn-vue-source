@@ -15,8 +15,14 @@
 
   <script>
     const vnode = h('div', { class: 'hbs' }, [
+      h('div', null, [
+        h('h2', null, 'title'),
+        h('span', null, 'message')
+      ]),
       h('button', null, '+1')
     ]);
+
+    mount(vnode, document.querySelector('#app'));
   </script>
 </body>
 
