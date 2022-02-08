@@ -64,13 +64,13 @@ const patch = (n1, n2) => {
 
     // 删除旧的 props
     for (const key in oldProps) {
-      if (!(key in newProps)) {
+      if (key.startsWith('on')) {
         const value = oldProps[key];
-        if (key.startsWith('on')) {
-          el.removeEventListener(key.slice(2).toLowerCase(), value);
-        } else {
-          el.removeAttribute(key);
-        }
+        el.removeEventListener(key.slice(2).toLowerCase(), value);
+      }
+
+      if (!(key in newProps)) {
+        el.removeAttribute(key);
       }
     }
 
